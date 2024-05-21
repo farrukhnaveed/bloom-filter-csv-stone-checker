@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  bloom_filter:
+    build: .
+    volumes:
+      - ./csv_folder:/usr/src/app/csv_folder  # Map the host folder to the container folder
+    environment:
+      - CSV_FOLDER_PATH=/usr/src/app/csv_folder  # Set the environment variable for the folder path
+      - TEST_STONE=PDO1365333  # Default test stone (can be overridden)
+    command: python main.py
